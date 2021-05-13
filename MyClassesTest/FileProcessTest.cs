@@ -11,9 +11,11 @@ namespace MyClassesTest
     {
         private string _GoodFileName;
 
+        private TestContext TestContext { get; set; }
+
         public void SetGoodFileName()
         {
-            _GoodFileName = ConfigurationManager.AppSettings["_GoodFileName"];
+            _GoodFileName = ConfigurationManager.AppSettings["GoodFileName"];
 
             if (_GoodFileName.Contains("[AppPath]"))
                 _GoodFileName = _GoodFileName.Replace("[AppPath]", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
@@ -27,10 +29,13 @@ namespace MyClassesTest
 
             SetGoodFileName();
 
+            TestContext.WriteLine("Creating file");
             File.AppendAllText(_GoodFileName, "Some Text");
 
+            TestContext.WriteLine("Testing file");
             fromCall = fp.FileExists(_GoodFileName);
 
+            TestContext.WriteLine("Deleting file");
             File.Delete(_GoodFileName);
 
             Assert.IsTrue(fromCall);
