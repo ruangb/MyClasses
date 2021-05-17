@@ -70,6 +70,24 @@ namespace MyClassesTest
             Assert.IsTrue(fromCall);
         }
 
+        public const string DEPLOYMENT_FILE_NAME = @"FileToDeploy.txt";
+
+        [TestMethod]
+        [Owner("Ruan")]
+        [DeploymentItem(DEPLOYMENT_FILE_NAME)]
+        public void FileNameDoesExistUsingDeploymentItem()
+        {
+            FileProcess fp = new FileProcess();
+            bool fromCall;
+
+            string fileName = $@"{TestContext.DeploymentDirectory}\{DEPLOYMENT_FILE_NAME}";
+
+            TestContext.WriteLine($"Checking file: {fileName}");
+            fromCall = fp.FileExists(fileName);
+
+            Assert.IsTrue(fromCall);
+        }
+
         [TestMethod]
         [Owner("Ana")]
         [Priority(1)]
