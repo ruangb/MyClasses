@@ -1,10 +1,10 @@
 ﻿namespace MyClasses.PersonClasses
 {
-    class PersonManager
+    public class PersonManager
     {
         public Person CreatePerson(string firstName, string lastName, bool isSupervisor)
         {
-            Person ret = new Person();
+            Person ret = null;
 
             if (!string.IsNullOrEmpty(firstName))
             {

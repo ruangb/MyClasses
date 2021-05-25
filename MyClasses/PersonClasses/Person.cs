@@ -1,6 +1,6 @@
 ﻿namespace MyClasses.PersonClasses
 {
-    class Person
+    public class Person
     {
         public string FirstName { get; set; }
 

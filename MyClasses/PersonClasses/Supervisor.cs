@@ -2,7 +2,7 @@
 
 namespace MyClasses.PersonClasses
 {
-    class Supervisor : Person
+    public class Supervisor : Person
     {
         List<Employee> employees = new List<Employee>();
     }
