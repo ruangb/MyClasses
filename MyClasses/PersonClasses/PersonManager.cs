@@ -1,4 +1,7 @@
-﻿namespace MyClasses.PersonClasses
+﻿using System;
+using System.Collections.Generic;
+
+namespace MyClasses.PersonClasses
 {
     public class PersonManager
     {
@@ -20,5 +23,15 @@
             return ret;
         }
 
+        public List<Person> GetPeople()
+        {
+            List<Person> people = new List<Person>();
+
+            people.Add(new Person { FirstName = "João", LastName = "Miranda" });
+            people.Add(new Person { FirstName = "Anderson", LastName = "Hernanes" });
+            people.Add(new Person { FirstName = "Daniel", LastName = "Alves" });
+
+            return people;
+        }
     }
 }
