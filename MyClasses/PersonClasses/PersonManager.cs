@@ -33,5 +33,16 @@ namespace MyClasses.PersonClasses
 
             return people;
         }
+
+        public List<Person> GetSupervisors()
+        {
+            List<Person> people = new List<Person>();
+
+            people.Add(CreatePerson("Tiago", "Volpi", true));
+            people.Add(CreatePerson("Rodrigo", "Nestor", true));
+            people.Add(CreatePerson("Igor", "Liziero", true));
+
+            return people;
+        }
     }
 }
