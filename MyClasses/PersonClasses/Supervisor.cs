@@ -4,6 +4,6 @@ namespace MyClasses.PersonClasses
 {
     public class Supervisor : Person
     {
-        List<Employee> employees = new List<Employee>();
+        public List<Employee> Employees { get; set; }
     }
 }

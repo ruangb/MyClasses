@@ -1,6 +1,6 @@
 ﻿namespace MyClasses.PersonClasses
 {
-    class Employee : Person
+    public class Employee : Person
     {
     }
 }
