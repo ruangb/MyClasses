@@ -30,6 +30,34 @@ namespace MyClassesTest
             }
         }
 
+        [TestMethod]
+        [Owner("Ruan")]
+        [DataSource("System.Data.SqlClient", @"Data Source=RUAN\SQLEXPRESS01;Initial Catalog=UnitTest01;Integrated Security=True", "FileProcessTest", DataAccessMethod.Sequential)]
+        public void FileExistsTestFromDB()
+        {
+            FileProcess fp = new FileProcess();
+            string fileName;
+            bool expectedValue;
+            bool causesException;
+            bool fromCall;
+
+            fileName = TestContext.DataRow["FileName"].ToString();
+            expectedValue = Convert.ToBoolean(TestContext.DataRow["ExpectedValue"]);
+            causesException = Convert.ToBoolean(TestContext.DataRow["CausesException"]);
+
+            try
+            {
+                fromCall = fp.FileExists(fileName);
+
+                Assert.AreEqual(expectedValue, fromCall, $"File: {fileName} has failed. METHOD: FileExistsTestFromDB");
+            }
+            catch (ArgumentException)
+            {
+                Assert.IsTrue(causesException);
+            }
+
+        }
+
         [TestCleanup]
         public void TestCleanup()
         {
